@@ -1,5 +1,6 @@
 import React from "react";
-import "../../assets/css/common/common.css";
+// import Css from "../../assets/css/common/common.css";
+// import "../../assets/css/common/common.css";
 export default class IndexComponent extends React.Component {
   constructor() {
     super();
@@ -7,6 +8,6 @@ export default class IndexComponent extends React.Component {
   }
   render() {
     return <div class="app">我是app</div>;
-    // <div class={Css["app"]}>我是app</div>;
+    // return <div class={Css["app"]}>我是app</div>;
   }
 }

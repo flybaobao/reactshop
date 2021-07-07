@@ -421,6 +421,7 @@ module.exports = function (webpackEnv) {
                       },
                     },
                   ],
+                  "react-html-attrs", //解决className问题
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
                     require.resolve("react-refresh/babel"),
@@ -470,9 +471,17 @@ module.exports = function (webpackEnv) {
             // By default we support CSS Modules with the extension .module.css
             {
               test: cssRegex,
-              exclude: cssModuleRegex,
+              // exclude: cssModuleRegex,
+              exclude: [
+                path.join(__dirname, "..", "node_modules"),
+                path.join(__dirname, "..", "src/assets/css/common"),
+              ],
               use: getStyleLoaders({
                 importLoaders: 1,
+                modules: {
+                  // 开启css模块化
+                  localIdentName: "[local]-[hash:base64:6]",
+                },
                 sourceMap: isEnvProduction
                   ? shouldUseSourceMap
                   : isEnvDevelopment,
@@ -482,6 +491,15 @@ module.exports = function (webpackEnv) {
               // Remove this when webpack adds a warning or an error for this.
               // See https://github.com/webpack/webpack/issues/6571
               sideEffects: true,
+            },
+            {
+              test: cssRegex,
+              // exclude: cssModuleRegex,
+              use: ["style-loader", "css-loader"],
+              include: [
+                path.join(__dirname, "..", "node_modules"),
+                path.join(__dirname, "..", "src/assets/css/common"),
+              ],
             },
             // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
             // using the extension .module.css
