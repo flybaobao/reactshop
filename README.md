@@ -68,3 +68,55 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### npm install babel-plugin-react-html-attrs --save-dev
+
+    1.外部引用需要使用className，react默认不支持class。如果想使用传统的class来获取样式，需要下载安装react-html-attrs插件。
+    2. <1> 在package.json文件里面存在如下配置
+       "devDependencies": {
+            "babel-plugin-import": "^1.13.0",
+            "babel-plugin-react-html-attrs": "^2.1.0",
+            "prop-types": "^15.7.2"
+        }
+
+              test: cssRegex,
+              exclude: cssModuleRegex,
+              use: getStyleLoaders({
+                importLoaders: 1,
+                modules: {
+                  // 开启css模块化
+                  localIdentName: "[local]-[hash:base64:6]",
+                },
+                sourceMap: isEnvProduction
+                  ? shouldUseSourceMap
+                  : isEnvDevelopment,
+              }),
+        <2>在webpack.config.js大概380行左右的位置加入 'react-html-attrs'
+        plugins: [
+            [
+                require.resolve('babel-plugin-named-asset-import'),
+                {
+                    loaderMap: {
+                    svg: {
+                        ReactComponent:
+                        '@svgr/webpack?-svgo,+titleProp,+ref![path]',
+                    },
+                    },
+                },
+            ],
+            'react-html-attrs' //解决className问题
+        ],
+    3.React是单页面应用，引用CSS样式默认都是全局的，这样会引起样式冲突，降低性能。
+        Vue里面的解决方案是使用scoped：
+        <style scoped></style>
+
+
+    4. 控制公共组件  不模块化
+
+              exclude: [
+                //排除这两个文件夹下面的css文件
+                resolve("node_modules"),
+                resolve("src/assets/css/common"),
+              ],
+
+### 安装 url-search 支持 ie post 传值 url-search-params-polyfill 插件
