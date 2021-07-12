@@ -16,10 +16,10 @@ input {
 
 html,
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-color: #ccc;
   font-size: 20px !important;
-  min-height: 100%;
+  /* min-height: 100%; */
   overflow: hidden;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   /*禁止链接高亮*/

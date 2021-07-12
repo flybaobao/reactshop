@@ -19,9 +19,12 @@ export default class IndexComponent extends React.Component {
       activeIndex: "1",
     };
   }
+  componentDidMount() {
+    this.setState({ activeIndex: "1" });
+  }
   chooseBtn(index, url) {
     this.setState({ activeIndex: index });
-    this.props.history.push(url);
+    this.props.history.replace(url);
   }
   render() {
     return (
