@@ -1,6 +1,40 @@
-.page-home {
-  color: yellow;
+.bottom-nanv {
+  /* color: yellow; */
   /* font-size: 20px; */
-  font-weight: bold;
-  border: 1px solid red;
+  /* font-weight: bold;
+  border: 1px solid red; */
+  height: 2.5rem;
+  width: 100%;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 10px #333333;
+  -webkit-box-shadow: 0 0 10px #333333;
+}
+
+.nav-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-pic {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.btn-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: .7rem;
+}
+
+.active-pro {
+  color: #0a93ee;
+}
+
+.btn-home .static {
+  color: #999999;
 }
