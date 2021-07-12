@@ -120,3 +120,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
               ],
 
 ### 安装 url-search 支持 ie post 传值 url-search-params-polyfill 插件
+
+    "babel-polyfill": "^6.26.0",

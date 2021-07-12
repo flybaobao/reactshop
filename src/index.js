@@ -6,6 +6,7 @@ import ReactDOM from "react-dom";
 import App from "./router";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/css/common/common.css";
+// import "./assets/js/lib/zepto";
 
 ReactDOM.render(
   <React.StrictMode>

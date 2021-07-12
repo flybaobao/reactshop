@@ -5,6 +5,6 @@ export default class IndexComponent extends React.Component {
     this.state = {};
   }
   render() {
-    return <div>我是首页</div>;
+    return <div> 我是首页 </div>;
   }
 }

@@ -1,31 +1,38 @@
 .app {
   /* width: 100px; */
-  height: 100px;
-  background-color: red;
+  min-height: 100vh;
+  background-color: #ccc;
 }
+
 * {
   margin: 0;
   padding: 0;
 }
+
 ul,
 li {
   list-style-type: none;
 }
+
 input {
   outline: none;
   border-radius: 0px;
   border: 0 none;
 }
+
 html,
 body {
   font-size: 20px !important;
   min-height: 100%;
   overflow: hidden;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /*禁止链接高亮*/
-  -webkit-touch-callout: none; /*禁止 链接 长按弹出选项*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /*禁止链接高亮*/
+  -webkit-touch-callout: none;
+  /*禁止 链接 长按弹出选项*/
 }
 
 @media screen and (min-width: 400px) {
+
   html,
   body {
     font-size: 21.3px !important;
@@ -33,6 +40,7 @@ body {
 }
 
 @media screen and (min-width: 414px) {
+
   html,
   body {
     font-size: 22.08px !important;
@@ -40,8 +48,17 @@ body {
 }
 
 @media screen and (min-width: 480px) {
+
   html,
   body {
     font-size: 25.6px !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  html,
+  body {
+    font-size: 40.96px !important;
   }
 }

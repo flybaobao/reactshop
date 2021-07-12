@@ -10,8 +10,10 @@
 import React, { Component } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 // import { private } from "./routes/private";
+import asyncComponent from "./components/libs/AsyncComponent";
 import App from "./pages/app";
-import IndexHome from "./pages/home/index";
+// import IndexHome from "./pages/home/index";
+const IndexHome = asyncComponent(() => import("./pages/home/index"));
 // import NewDetails from "../pages/news/details"
 // import GoodIndex from "../pages/goods/index"
 // import ProfileIndex from "../pages/profile/index"
@@ -31,9 +33,7 @@ class RouterComponent extends Component {
           <React.Fragment>
             <Switch>
               <Route exact path="/" component={App}></Route>
-              <Route path="/homeIndex" component={IndexHome}>
-                跳转首页
-              </Route>
+              <Route path="/homeIndex" exact component={IndexHome}></Route>
             </Switch>
           </React.Fragment>
         </Router>
