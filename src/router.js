@@ -8,8 +8,14 @@
 */
 
 import React, { Component } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 // import { private } from "./routes/private";
+import config from "./assets/js/config/config";
 import App from "./pages/app";
 // import IndexHome from "./pages/home/index";
 // import NewDetails from "../pages/news/details"
@@ -30,7 +36,8 @@ class RouterComponent extends Component {
         <Router>
           <React.Fragment>
             <Switch>
-              <Route path="/" component={App}></Route>
+              <Route path={config.path + "home"} component={App}></Route>
+              <Redirect to={config.path + "home/index"}></Redirect>
             </Switch>
           </React.Fragment>
         </Router>

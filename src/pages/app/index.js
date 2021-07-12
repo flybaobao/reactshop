@@ -10,6 +10,8 @@ import homeImg8 from "../../assets/images/home/homebtn8.png";
 import { Route, Switch } from "react-router-dom";
 import asyncComponent from "../../components/libs/AsyncComponent";
 const IndexHome = asyncComponent(() => import("../home/index"));
+const IndexFoods = asyncComponent(() => import("../home/foods/foodsIndex"));
+const IndexUser = asyncComponent(() => import("../home/user"));
 export default class IndexComponent extends React.Component {
   constructor() {
     super();
@@ -17,8 +19,9 @@ export default class IndexComponent extends React.Component {
       activeIndex: "1",
     };
   }
-  chooseBtn(index) {
+  chooseBtn(index, url) {
     this.setState({ activeIndex: index });
+    this.props.history.push(url);
   }
   render() {
     return (
@@ -26,6 +29,8 @@ export default class IndexComponent extends React.Component {
         <React.Fragment>
           <Switch>
             <Route path="/home/index" exact component={IndexHome}></Route>
+            <Route path="/home/foods" exact component={IndexFoods}></Route>
+            <Route path="/home/users" exact component={IndexUser}></Route>
           </Switch>
         </React.Fragment>
         <div class={Css["bottom-nanv"]}>
@@ -39,7 +44,7 @@ export default class IndexComponent extends React.Component {
           <ul class={Css["nav-btn"]}>
             <li
               class={Css["btn-home"]}
-              onClick={this.chooseBtn.bind(this, "1")}
+              onClick={this.chooseBtn.bind(this, "1", "/home/index")}
             >
               <img
                 class={Css["btn-pic"]}
@@ -56,7 +61,7 @@ export default class IndexComponent extends React.Component {
             </li>
             <li
               class={Css["btn-home"]}
-              onClick={this.chooseBtn.bind(this, "2")}
+              onClick={this.chooseBtn.bind(this, "2", "/home/foods")}
             >
               <img
                 class={Css["btn-pic"]}
@@ -73,7 +78,7 @@ export default class IndexComponent extends React.Component {
             </li>
             <li
               class={Css["btn-home"]}
-              onClick={this.chooseBtn.bind(this, "3")}
+              onClick={this.chooseBtn.bind(this, "3", "/home/users")}
             >
               <img
                 class={Css["btn-pic"]}
